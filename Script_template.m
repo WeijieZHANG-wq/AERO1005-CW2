@@ -1,4 +1,3 @@
-https://github.com/WeijieZHANG-wq/AERO1005-CW2.git
 % Insert name here
 % Insert email address here
 

@@ -18,7 +18,7 @@ end
 %% TASK 1 - READ TEMPERATURE DATA, PLOT, AND WRITE TO A LOG FILE [20 MARKS]
 
 % Record voltage and calculate temperature
-duration = 600; % s
+duration = 601; % s
 voltages = zeros(1,duration);
 times = 0:duration-1;
 V_0C = 0.5 % 500mV

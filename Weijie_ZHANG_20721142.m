@@ -28,7 +28,7 @@ for t = 1:duration
     voltages(t) = readVoltage(a, 'A0');
     pause(1);
 end
-temp = (voltages - V0C) / TC;
+temp = (voltages - V_0C) / TC;
 
 T_min = min(temp);
 T_max = max(temp);
@@ -38,6 +38,19 @@ plot(times/60, temp);
 xlabel('Time (min)'); ylabel('Temperature (°C)');
 title('Task 1: Temperature Recording');
 saveas(gcf, 'temp_plot_task1.png');
+
+% Formatted output recorded data
+fprintf('Data logging initiated - %s\n', datestr(now, 'dd/mm/yyyy'));
+fprintf('Location - Nottingham\n');
+for min = 0:10
+    idx = min*60 + 1;
+    fprintf('Minute %d\tTemperature %.2f C\n', min, temp(idx));
+end
+fprintf('Max temp %.2f C\n', T_max);
+fprintf('Min temp %.2f C\n', T_min);
+fprintf('Average temp %.2f C\n', T_avg);
+fprintf('Data logging terminated\n');
+
 
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 

@@ -1,15 +1,38 @@
 % Weijie ZHANG
 % ssywz9@nottingham.edu.cn
-
+clear; clc
 
 %% PRELIMINARY TASK - ARDUINO AND GIT INSTALLATION [5 MARKS]
 
 % Connect MATLAB and Arduino
 a = arduino('COM7', 'Uno');
 
+% Blink an LED
+for i = 1:10
+    writeDigitalPin(a, 'D13', 1);
+    pause(0.5);
+    writeDigitalPin(a, 'D13', 0);
+    pause(0.5);
+end
+
 %% TASK 1 - READ TEMPERATURE DATA, PLOT, AND WRITE TO A LOG FILE [20 MARKS]
 
-% Insert answers here
+% Record voltage and calculate temperature
+duration = 600; % s
+voltages = zeros(1,duration);
+times = 0:duration-1;
+V_0C = 0.5 % 500mV
+T_c = 0.01 % 10 mV/C
+
+for t = 1:duration
+    voltages(t) = readVoltage(a, 'A0');
+    pause(1);
+end
+temp = (voltages - V0C) / TC;
+
+T_min = min(temp);
+T_max = max(temp);
+T_avg = mean(temp);
 
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 

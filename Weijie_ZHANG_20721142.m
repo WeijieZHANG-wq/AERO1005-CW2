@@ -1,10 +1,11 @@
-% Insert name here
-% Insert email address here
+% Weijie ZHANG
+% ssywz9@nottingham.edu.cn
 
 
 %% PRELIMINARY TASK - ARDUINO AND GIT INSTALLATION [5 MARKS]
 
-% Insert answers here
+% Connect MATLAB and Arduino
+a = arduino('COM7', 'Uno');
 
 %% TASK 1 - READ TEMPERATURE DATA, PLOT, AND WRITE TO A LOG FILE [20 MARKS]
 

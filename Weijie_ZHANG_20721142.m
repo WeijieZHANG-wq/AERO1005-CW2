@@ -34,6 +34,11 @@ T_min = min(temp);
 T_max = max(temp);
 T_avg = mean(temp);
 
+plot(times/60, temp);
+xlabel('Time (min)'); ylabel('Temperature (°C)');
+title('Task 1: Temperature Recording');
+saveas(gcf, 'temp_plot_task1.png');
+
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
 % Insert answers here

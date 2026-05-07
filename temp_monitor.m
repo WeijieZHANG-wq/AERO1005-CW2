@@ -36,6 +36,7 @@ while true
         writeDigitalPin(a, greenPin, 1);
         writeDigitalPin(a, yellowPin, 0);
         writeDigitalPin(a, redPin, 0);
+        pause(1)
     elseif temp < 18
         writeDigitalPin(a, greenPin, 0);
         writeDigitalPin(a, yellowPin, 1); pause(0.5);
@@ -47,6 +48,4 @@ while true
         writeDigitalPin(a, redPin, 1); pause(0.25);
         writeDigitalPin(a, redPin, 0); pause(0.25);
     end
-
-    pause(1)
 end

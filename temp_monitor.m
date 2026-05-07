@@ -24,7 +24,7 @@ while true
     voltage = readVoltage(a, 'A0');
     temp = (voltage - 0.5) / 0.01;
     % Record data
-    
+    currentTime = toc(startTime);
     timeData = [timeData, currentTime];
     tempData = [tempData, temp];
     % Update graph
@@ -36,7 +36,6 @@ while true
         writeDigitalPin(a, greenPin, 1);
         writeDigitalPin(a, yellowPin, 0);
         writeDigitalPin(a, redPin, 0);
-        
     elseif temp < 18
         writeDigitalPin(a, greenPin, 0);
         writeDigitalPin(a, yellowPin, 1); pause(0.5);
@@ -48,9 +47,12 @@ while true
         writeDigitalPin(a, redPin, 1); pause(0.25);
         writeDigitalPin(a, redPin, 0); pause(0.25);
     end
-    elapsed = toc;
-    if elapsed < 1
-        pause(1 - elapsed);
-    end
+    pause(1 - toc(startTime)+currentTime);
 end
 end
+% temp_monitor(a) continuously reads temperature from an Arduino sensor,
+% updates a live plot every 1 s, and controls three LEDs:
+% - Green steady when 18-24°C
+% - Yellow blinks (0.5 s) if below 18°C
+% - Red blinks (0.25 s) if above 24°C
+% The loop runs indefinitely. Press Ctrl+C to stop.

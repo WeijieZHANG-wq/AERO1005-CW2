@@ -1,6 +1,6 @@
 % TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
-
 function temp_monitor(a)
+a = arduino
 
 % LED pin setting
 greenPin = 'D13';
@@ -12,7 +12,7 @@ figure;
 hLine = plot(nan, nan, '-b');
 xlabel('Time (s)'); ylabel('Temperature (°C)');
 title('Real-time Temperature Monitor');
-xlim([0 60]); ylim([15 30]);
+xlim([0 60]); ylim([15 35]);
 grid on;
 % Store data
 timeData = [];
@@ -24,7 +24,7 @@ while true
     voltage = readVoltage(a, 'A0');
     temp = (voltage - 0.5) / 0.01;
     % Record data
-    currentTime = toc(startTime);
+    
     timeData = [timeData, currentTime];
     tempData = [tempData, temp];
     % Update graph
@@ -36,7 +36,7 @@ while true
         writeDigitalPin(a, greenPin, 1);
         writeDigitalPin(a, yellowPin, 0);
         writeDigitalPin(a, redPin, 0);
-        pause(1)
+        
     elseif temp < 18
         writeDigitalPin(a, greenPin, 0);
         writeDigitalPin(a, yellowPin, 1); pause(0.5);
@@ -48,4 +48,9 @@ while true
         writeDigitalPin(a, redPin, 1); pause(0.25);
         writeDigitalPin(a, redPin, 0); pause(0.25);
     end
+    elapsed = toc;
+    if elapsed < 1
+        pause(1 - elapsed);
+    end
+end
 end

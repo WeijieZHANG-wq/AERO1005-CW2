@@ -1,5 +1,12 @@
 % TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 function temp_monitor(a)
+% TEMP_MONITOR  Real-time temperature monitoring with LED indicators
+% temp_monitor(a) continuously reads temperature from an Arduino sensor,
+% updates a live plot every 1 s, and controls three LEDs:
+% - Green steady when 18-24°C
+% - Yellow blinks (0.5 s) if below 18°C
+% - Red blinks (0.25 s) if above 24°C
+% The loop runs indefinitely. Press Ctrl+C to stop.
 a = arduino
 
 % LED pin setting
@@ -50,9 +57,3 @@ while true
     pause(1 - toc(startTime)+currentTime);
 end
 end
-% temp_monitor(a) continuously reads temperature from an Arduino sensor,
-% updates a live plot every 1 s, and controls three LEDs:
-% - Green steady when 18-24°C
-% - Yellow blinks (0.5 s) if below 18°C
-% - Red blinks (0.25 s) if above 24°C
-% The loop runs indefinitely. Press Ctrl+C to stop.

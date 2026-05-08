@@ -1,12 +1,12 @@
 % ALGORITHMS – TEMPERATURE PREDICTION [30 MARKS]
 function temp_prediction(a)
 % TEMP_PREDICTION Temperature change rate monitoring and prediction
-%   temp_prediction(a) continuously calculates the temperature change rate,
-%   predicts the temperature after 5 minutes, and indicates the change
-%   LEDs indicate the rate of change:
-%    Red–constant if rate > +4 °C/min (heating too fast)
-%    Yellow–constant if rate < -4 °C/min (cooling too fast)
-%    Green–constant otherwise (stable, comfortable)
+% temp_prediction(a) continuously calculates the temperature change rate,
+% predicts the temperature after 5 minutes, and indicates the change
+% LEDs indicate the rate of change:
+% Red–constant if rate > +4 °C/min (heating too fast)
+% Yellow–constant if rate < -4 °C/min (cooling too fast)
+% Green–constant otherwise (stable, comfortable)
 a = arduino
 
 % LED pin setting

@@ -74,8 +74,3 @@ fclose(fid);
 %% TASK 3 - ALGORITHMS – TEMPERATURE PREDICTION [30 MARKS]
 
 % function temp_prediction(a);
-
-
-%% TASK 4 - REFLECTIVE STATEMENT [5 MARKS]
-
-% Insert answers here

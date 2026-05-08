@@ -50,14 +50,14 @@ while true
         writeDigitalPin(a, greenPin, 0);
         writeDigitalPin(a, yellowPin, 0);
         writeDigitalPin(a, redPin, 1);
-    elseif rate * 60 > -4
+    elseif rate * 60 < -4
         writeDigitalPin(a, redPin, 0);
-        writeDigitalPin(a, yellowPin, 0);
-        writeDigitalPin(a, greenPin, 1);
-    else  % rate * 60 < -4
         writeDigitalPin(a, yellowPin, 1);
-        writeDigitalPin(a, redPin, 0);
         writeDigitalPin(a, greenPin, 0);
+    else
+        writeDigitalPin(a, yellowPin, 0);
+        writeDigitalPin(a, redPin, 0);
+        writeDigitalPin(a, greenPin, 1);
     end
 
     pause(1);
